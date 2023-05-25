@@ -30,7 +30,7 @@
   networking.hostName = "nixos";
 
   boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.device = "/dev/vda";
   boot.loader.grub.useOSProber = true;
 
   users.users = {
@@ -40,4 +40,6 @@
       extraGroups = [ "wheel" "networkmanager" "audio" "docker" ];
     };
   };
+
+  system.stateVersion = "22.11";
 }
