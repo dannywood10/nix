@@ -12,7 +12,7 @@
     hardware.url = "github:nixos/nixos-hardware";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: 
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
@@ -35,22 +35,22 @@
       overlays = import ./overlays { inherit inputs; };
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
-    };
-    # 'nixos-rebuild --flake .#your-hostname'
-    nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs outputs; }; 
-        modules = [ ./nixos/configuration.nix ];
-      };
-    };
 
-    # 'home-manager --flake .#your-username@your-hostname'
-    homeConfigurations = {
-      "dannyw@nixos" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; 
-        extraSpecialArgs = { inherit inputs outputs; }; 
-        modules = [ ./home-manager/home.nix ];
+      # 'nixos-rebuild --flake .#your-hostname'
+      nixosConfigurations = {
+        nixos = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; }; 
+          modules = [ ./nixos/configuration.nix ];
+        };
+      };
+
+      # 'home-manager --flake .#your-username@your-hostname'
+      homeConfigurations = {
+        "dannyw@nixos" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux; 
+          extraSpecialArgs = { inherit inputs outputs; }; 
+          modules = [ ./home-manager/home.nix ];
+        };
       };
     };
-  };
 }
