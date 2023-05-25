@@ -1,7 +1,6 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
-    ./users.nix
   ];
 
   nixpkgs = {
@@ -34,4 +33,11 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
+  users.users = {
+    dannyw = {
+      isNormalUser = true;
+      description = "Danny wood";
+      extraGroups = [ "wheel" "networkmanager" "audio" "docker" ];
+    };
+  };
 }
