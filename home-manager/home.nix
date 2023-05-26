@@ -37,7 +37,7 @@
     git
     nodePackages.npm
     nodejs
-    openssg
+    openssh
     postgresql
     terraform
     terraform-ls
