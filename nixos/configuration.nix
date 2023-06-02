@@ -1,7 +1,6 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.home-manager
   ];
 
   nixpkgs = {
@@ -76,13 +75,6 @@
       isNormalUser = true;
       description = "Danny wood";
       extraGroups = [ "wheel" "networkmanager" "audio" "docker" ];
-    };
-  };
-
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      dannyw = import ../home-manager/home.nix;
     };
   };
 
