@@ -1,6 +1,7 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
+    ./home.nix
   ];
 
   nixpkgs = {
