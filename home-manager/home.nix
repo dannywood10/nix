@@ -26,8 +26,9 @@
 
   home.packages = with pkgs; [
     firefox-devedition-bin
+    kitty
     slack
-
+    
     act
     awscli2
     btop
@@ -64,12 +65,6 @@
       ];
     })
   ];
-
-  programs.neovim.enable = true;
-  programs.hyprland = {
-    enable = true;
-    package = pkgs.hyprland-nvidia;
-  };
   
   # Enable home-manager and git
   programs.home-manager.enable = true;
