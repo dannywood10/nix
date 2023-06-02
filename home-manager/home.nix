@@ -32,7 +32,6 @@
     btop
     docker
     docker-compose
-    dot
     gh
     git
     nodePackages.npm
