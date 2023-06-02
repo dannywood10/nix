@@ -6,7 +6,7 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
-      dannw = import ../home-manager;
+      dannw = import ../home-manager/home.nix;
     };
   };
 }
