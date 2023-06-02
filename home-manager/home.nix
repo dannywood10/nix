@@ -49,7 +49,6 @@
     yarn
     zip
     #
-    vscode
     (vscode-with-extensions.override {
       vscodeExtensions = with vscode-extensions; [
         esbenp.prettier-vscode
